@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS - Validar formulários</title>
+    <style>
+        body { 
+			width: 100%;
+			height: 100%;
+			font-family: 'calibri';
+            font-style: italic;
+            font-size: 20px;
+			background: -webkit-linear-gradient(top, rgba(243, 113, 113, 0.808), rgba(248, 67, 67, 0.562)), -webkit-linear-gradient(-45deg, #330101f3, #330101f3);
+        }
+        html {
+			width: 100%; 
+			height: 100%; 
+			overflow: hidden; 
+		}
+        .cl-body {
+            width: 500px;
+            margin: auto;
+            border: 0px solid #73AD21;
+        }
+        .cl-text { 
+			width: 40%; 
+			margin-bottom: 15px; 
+			background: rgba(0,0,0,0.3);
+			outline: none;
+			padding: 7px;
+			font-size: 15px;
+			color: #fff;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+			border: 1px solid rgba(0,0,0,0.3);
+			border-radius: 6px;
+			box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+		}
+        .cl-txa {
+            width: 1000px;
+        }
+        .cl-r {
+            background: rgba(0, 0, 0, 0.589);
+			outline: none;
+            border-radius: 6px;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        input[type=checkbox]{
+            cursor: pointer;
+        }
+        input[type=button]{
+            outline: none;
+            border: none;
+            margin-bottom: 15px; 
+            box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+            width: 120px;
+            padding: 8px;
+			font-size: 13px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            background: #410000;
+            color: #fff;
+        }
+        input[type=button]:hover {
+            transition: ease 0.3s;
+    		color: #410000;
+    		background: #fff;
+    		outline: 3px solid #410000;
+        }
+    </style>
+    <script>
+        function validar(){
+            var form = document.frmDados;
+            var nome;
+            nome = form.txtNome.value;
+            cpf = form.txtCpf.value;
+            idade = form.txtIdade.value;
+            if ( nome == "" ){
+                alert("Por favor, informe seu nome completo.");
+            } else if ( form.pVeiculo[0].checked != true && form.pVeiculo[1].checked != true){
+                alert("Por favor, selecione se você possui um veículo ou não.");
+            } else if ( form.uf.value == "Selecione" ){
+                alert("Por favor, selecione um estado.");
+            } else if ( form.manha.checked == false && form.tarde.checked == false && form.noite.checked == false){
+                alert("Por favor, selecione sua disponibilidade de horário.");
+            } else if ( cpf == "" ){
+                alert("Por favor, informe seu CPF.")
+            } else if ( idade == "" || idade <= 17){
+                alert("Você não é maior de idade!")
+            } else if ( form.salario.value == "Selecione" ){
+                alert("Por favor, escolha sua pretensão salarial.")
+            } else if ( form.txaHist.value == "" ){
+                alert("Por favor, conte-nos o por quê você deseja esta vaga.")
+            } else {
+                form.submit();
+            }
+        }
+    </script>
+</head>
+    <body>
+        <div><h3>Cadastro de candidatos</h3></div>
+            <div>
+                <div class="cl-body">
+                    <form name="frmDados" method="get" action="pagina.html">
+                        <p>
+                            <span>Nome completo: </span>
+                            <input type="text" name="txtNome" class="cl-text" autocomplete="off"/>
+                            <br>
+                            <span>CPF: </span>
+                            <input type="text" name="txtCpf" class="cl-text" autocomplete="off" placeholder="Ex: dd/mm/aaaa"/>
+                            <br>
+                            <span>Idade: </span>
+                            <input type="text" name="txtIdade" class="cl-text" autocomplete="off" placeholder="Ex: 00"/>
+                            <br>
+                            <span>Possui veículo próprio?</span>
+                            <br>
+                            <input type="radio" name="pVeiculo" value="sim" /><span>Sim</span>
+                            <br>
+                            <input type="radio" name="pVeiculo" value="nao" /><span>Não</span>
+                        </p>
+                        <p>
+                            <span>Estado: </span>
+                            <select name="uf" class="cl-r">
+                                <option>Selecione</option>
+                                <option>SP</option>
+                                <option>MG</option>
+                                <option>RJ</option>
+                            </select>
+                        </p>
+                        <p>
+                            <span>Disponibilidade de horário:</span>
+                            <br>
+                            <span>Manhã: </span><input type="checkbox" name="manha" value="MANHÃ" class="cl-check"/>
+                            <br>
+                            <span>Tarde: </span><input type="checkbox" name="tarde" value="TARDE" class="cl-check"/>
+                            <br>
+                            <span>Noite: </span><input type="checkbox" name="noite" value="NOITE" class="cl-check"/>
+                        </p>
+                        <p>
+                            <span>Pretenção salarial: </span>
+                            <select name="salario" class="cl-r">
+                                <option>Selecione</option>
+                                <option>R$ 700 a 900</option>
+			                    <option>R$ 1.000</option>
+			                    <option>R$ 1.000 a 1.300</option>
+			                    <option>R$ 1.500</option>
+			                    <option>R$ 1.500 a 2.000</option>
+                            </select>
+                        </p>
+                        <p class="cl-txa">
+                            <span>Conte-nos o por quê você deseja esta vaga:</span>
+                            <br>
+                            <textarea rows="8" name="txaHist" autocomplete="off" class="cl-text" placeholder="Seja criativo."></textarea>
+                        </p>
+                        <p>
+                            <div><input type="button" onClick="validar()" name="btnEnviar" value="Enviar" /></div>
+                        </p>
+                    </form>
+                </div>
+            </div>
+    </body>
+</html>

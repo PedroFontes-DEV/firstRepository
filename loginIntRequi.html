@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<title>login</title>
+	<style>
+		body { 
+			width: 100%;
+			height: 100%;
+			font-family: 'Open Sans', sans-serif;
+			background: -webkit-linear-gradient(top, rgba(255, 86, 86, 0.25), rgba(255, 155, 155, 0.808)), -webkit-linear-gradient(-45deg, #330101f3, #330101f3);	
+		}
+
+		html {
+			width: 100%; 
+			height: 100%; 
+			overflow: hidden; 
+		}
+		/* ######################################################################################################################################################################### */
+		
+		.cl-btn { 
+			width: 107%;
+			color: #333333; 
+			text-align: center;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.3); 
+			border: none;
+			padding: 10px;
+			font-size: 15px; 
+			border-radius: 6px;
+			cursor: pointer;
+		}
+
+		.cl-btn:hover{
+			transition: ease 0.3s;
+    		color: #fff;
+    		background: #410000;;
+    		outline: 2px solid #fff;
+		}	
+
+		.cl-login { 
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -150px 0 0 -150px;
+			width: 300px;
+			height: 300px;
+		}
+
+		.cl-login h1 { 
+			color: #fff; 
+			text-align: center; 
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+		}
+
+		input { 
+			width: 100%; 
+			margin-bottom: 15px; 
+			background: rgba(0,0,0,0.3);
+			outline: none;
+			padding: 10px;
+			font-size: 13px;
+			color: #fff;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+			border: 1px solid rgba(0,0,0,0.3);
+			border-radius: 6px;
+			box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+		}
+	</style>
+</head>
+	<body>
+		<div class="cl-login">
+			<h1>Login</h1>
+			<form method="post">
+				<input type="text" name="txtUser" placeholder="Usuário" autocomplete="off" required="required"/>
+				<input type="password" name="txtPass" placeholder="Senha" autocomplete="off" required="required"/>
+				<button type="submit" class="cl-btn">Acessar</button>
+			</form>
+		</div>
+	</body>
+</html>
